@@ -1,0 +1,32 @@
+.app {
+  /*background: linear-gradient(#7d2c5a, #cc672c);*/
+  background: #9cd6d2;
+}
+
+.card {
+  margin: 20px;
+}
+
+.haricot {
+  background: #49a84e;
+  color: white;
+}
+
+.poivron {
+  background: #d02a35;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.card-title {
+  background: white;
+  color: #222222
+}
+
+.capteurs {
+  display: inline-block;
+}

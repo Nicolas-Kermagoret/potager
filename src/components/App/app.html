@@ -1,0 +1,32 @@
+<v-app class="app">
+  <v-layout>
+    <v-flex>
+      <v-card class="card">
+        <chart :data-set="dataSetMoisture"></chart>
+      </v-card>
+    </v-flex>
+  </v-layout>
+
+  <v-layout class="row">
+    <v-card class="haricot">
+      <v-card-title primary-title class="card-title">
+        <div>Haricots</div>
+      </v-card-title>
+      <div class="text-center">
+        <h1>{{lastData[0]}} %</h1>
+        <div>Humidité</div>
+      </div>
+    </v-card>
+
+    <v-card class="poivron">
+      <v-card-title primary-title class="card-title">
+        <div>Poivrons</div>
+      </v-card-title>
+      <div class="text-center">
+        <h1>{{lastData[1]}} %</h1>
+        <div>Humidité</div>
+      </div>
+    </v-card>
+  </v-layout>
+
+</v-app>
