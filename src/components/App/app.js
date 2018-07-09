@@ -1,5 +1,4 @@
 import ChartComponent from '../Chart/chart.vue'
-import axios from 'axios'
 import moment from 'moment'
 
 export default {
@@ -15,10 +14,11 @@ export default {
         [],
         []
       ],
-      lastData: []
+      lastData: [],
+      url: this.$resource('http://192.168.0.20:3000/moisture/{suffix}')
     }
   },
-  mounted () {
+  mounted() {
     this.getData()
     this.getLastData()
   },
@@ -31,13 +31,8 @@ export default {
         this.useLed('off')
       }
     },
-    useLed: function (state) {
-      const url = `http://192.168.0.20:3000/${state}`
-      fetch(url)
-    },
-    getData: function () {
-      const url = 'http://192.168.0.20:3000/moisture'
-      return axios.get(url).then(response => {
+    getData() {
+      return this.url.get().then(response => {
         let dataSet = [
           [],
           [],
@@ -55,9 +50,10 @@ export default {
         this.dataSetMoisture = dataSet
       })
     },
-    getLastData () {
-      const url = 'http://192.168.0.20:3000/moisture/last'
-      return axios.get(url).then(response => {
+    getLastData() {
+      return this.url.get({
+        suffix: 'last'
+      }).then(response => {
         this.lastData = response.data
       })
     }
